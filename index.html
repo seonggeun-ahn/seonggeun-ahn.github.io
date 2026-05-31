@@ -65,7 +65,6 @@
       font-weight: 400;
       color: var(--gray);
       text-decoration: none;
-      letter-spacing: 0.01em;
       transition: color 0.2s;
     }
 
@@ -90,21 +89,7 @@
     .hero {
       padding: 10rem 2.5rem 5rem;
       border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 4rem;
-      align-items: end;
       max-width: 960px;
-    }
-
-    .hero-left {}
-
-    .hero-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--gray);
-      letter-spacing: 0.04em;
-      margin-bottom: 1rem;
     }
 
     .hero h1 {
@@ -113,24 +98,13 @@
       line-height: 1.08;
       letter-spacing: -0.03em;
       color: var(--black);
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .hero-sub {
       font-size: 0.92rem;
       font-weight: 300;
       color: var(--gray);
-      line-height: 1.7;
-    }
-
-    .hero-photo {
-      width: 180px;
-      height: 220px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 4px;
-      filter: grayscale(8%);
-      flex-shrink: 0;
     }
 
     /* SECTION */
@@ -149,7 +123,58 @@
       margin-bottom: 3rem;
     }
 
-    /* ABOUT */
+    /* ABOUT — 2-column */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .about-email {
+      font-size: 0.78rem;
+      color: var(--gray);
+      word-break: break-all;
+    }
+
+    .about-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.85rem;
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .social-btn:hover { border-color: var(--gray-light); color: var(--gray); }
+    .social-btn .arr { font-size: 0.8rem; color: var(--gray-light); }
+
     .about-text p {
       font-size: 0.95rem;
       font-weight: 300;
@@ -174,7 +199,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin: 2rem 0 0;
+      margin-top: 1.5rem;
     }
 
     .kw {
@@ -226,6 +251,11 @@
       line-height: 1.75;
     }
 
+    .entry-content a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .entry-content ul { padding-left: 1.1rem; }
     .entry-content ul li { margin-bottom: 0.2rem; }
 
@@ -243,41 +273,6 @@
       padding: 0.15rem 0.55rem;
       border-radius: 999px;
     }
-
-    /* CONTACT */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .contact-heading {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 300;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      color: var(--black);
-    }
-
-    .contact-links { display: flex; flex-direction: column; }
-
-    .contact-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      border-top: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--black);
-      font-size: 0.88rem;
-      font-weight: 400;
-      transition: color 0.2s;
-    }
-
-    .contact-link:last-child { border-bottom: 1px solid var(--border); }
-    .contact-link:hover { color: var(--gray); }
-    .contact-link .arr { font-size: 0.85rem; color: var(--gray-light); }
 
     /* FOOTER */
     footer {
@@ -301,11 +296,11 @@
     @media (max-width: 700px) {
       nav { padding: 1rem 1.25rem; }
       .nav-links { gap: 1rem; }
-      .hero { grid-template-columns: 1fr; padding: 7rem 1.25rem 4rem; gap: 2rem; }
-      .hero-photo { width: 120px; height: 150px; }
+      .hero { padding: 7rem 1.25rem 4rem; }
       section { padding: 3.5rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { width: 140px; aspect-ratio: 3/4; }
       .entry { grid-template-columns: 1fr; gap: 0.4rem; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 0.3rem; }
     }
   </style>
@@ -318,52 +313,66 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="assets/CV_SeonggeunAhn_202605.pdf" target="_blank">CV</a></li>
       <li><button class="lang-btn" onclick="toggleLang()">EN</button></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <div class="hero">
-    <div class="hero-left">
-      <p class="hero-eyebrow">안성근 · Seoul, Korea</p>
-      <h1>Seonggeun<br>Ahn</h1>
-      <p class="hero-sub" id="hero-sub-ko">M.S. Student · UNIST AIGS · AGA Lab</p>
-      <p class="hero-sub" id="hero-sub-en" style="display:none">M.S. Student · UNIST AIGS · AGA Lab</p>
-    </div>
-    <img class="hero-photo" src="assets/202604_sgahn_profile.jpg" alt="Seonggeun Ahn" />
+  <div class="hero fade">
+    <h1>Seonggeun Ahn</h1>
+    <p class="hero-sub">M.S. Student · UNIST AIGS · AGA Lab</p>
   </div>
 
   <!-- ABOUT -->
   <section id="about">
     <p class="section-title">About</p>
 
-    <div class="about-text fade" id="about-ko">
-      <p>안녕하세요, 저는 안성근이라고 합니다. 만나서 반가워요! 👋</p>
-      <p>현재 <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST 인공지능대학원(AIGS)</a>에서 <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Sangwoong Yoon</a> 교수님의 지도 아래 <a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a> 소속으로 석사과정을 밟고 있습니다.</p>
-      <p>fundamental한 AI에 관심이 많고, 강화학습을 공부하고 있습니다 🤖. 현실 세계와 상호작용하며 스스로 행동하는 능동적인 에이전트라는 개념 자체에 매력을 느낍니다. 아직 배워가는 단계입니다!</p>
-      <p>'문제 해결'이라는 키워드를 좋아합니다 — 꼭 공학이 아니더라도요. 다양한 분야의 문제 해결 방식을 직접 경험해보고 싶어 여러 학과를 두루 밟았습니다. <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">산업공학</a>에서는 시스템적 사고를, <a href="https://design.unist.ac.kr/" target="_blank" rel="noopener">디자인</a>에서는 사람과 기술을 연결하는 방식을, <a href="https://business.unist.ac.kr/business/index.do" target="_blank" rel="noopener">경영과학</a>에서는 조직 관점의 문제 해결 방법론을 배웠습니다. 약 2년간 <a href="https://www.instagram.com/unistusc/" target="_blank" rel="noopener">UNIST 학부 총학생회</a>장을 맡으며 직접 학교 문제를 해결하기도 했습니다 🏫.</p>
-      <p>대한민국 대구에서 태어나 <a href="https://dg1s.dge.hs.kr/dg1sh/main.do" target="_blank" rel="noopener">대구일과학고등학교</a>를 졸업하고, UNIST에서 <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">산업공학</a>·<a href="https://math.unist.ac.kr/" target="_blank" rel="noopener">수리과학</a>으로 학사 학위를 받았습니다. 입학 전에는 AI 스타트업 <a href="https://www.linkedin.com/company/102073770/" target="_blank" rel="noopener">Cheiron</a>에서 Business Operations Manager로 일했습니다.</p>
-      <p>연구 외에는 <a href="https://www.instagram.com/studio_ingam/" target="_blank" rel="noopener">인물 사진 촬영</a> 📷, 디자인 프로젝트, <a href="https://www.instagram.com/unist_nest/" target="_blank" rel="noopener">연극</a>(연출·배우·관람 모두 🎭)을 즐깁니다. 울산에 오래 살게 되면서 지역 발전과 균형 있는 삶에 대해서도 종종 생각합니다.</p>
-      <p>연구 이야기든 가벼운 일상 이야기든, 어떤 주제로도 소통하는 것을 좋아합니다. 편하게 연락주세요 😊!</p>
-    </div>
+    <div class="about-grid">
+      <!-- 왼쪽: 사진 + 링크 -->
+      <div class="about-left fade">
+        <img class="about-photo" src="assets/202604_sgahn_profile.jpg" alt="Seonggeun Ahn" />
+        <p class="about-email">boy0073693@gmail.com</p>
+        <div class="about-social">
+          <a class="social-btn" href="https://www.linkedin.com/in/seonggeun-ahn/" target="_blank" rel="noopener">
+            <span>LinkedIn</span><span class="arr">↗</span>
+          </a>
+          <a class="social-btn" href="https://www.instagram.com/sg_ahn3693/" target="_blank" rel="noopener">
+            <span>Instagram</span><span class="arr">↗</span>
+          </a>
+        </div>
+      </div>
 
-    <div class="about-text fade" id="about-en" style="display:none">
-      <p>Hi, I'm Seonggeun! 👋</p>
-      <p>I am a first-year M.S. student at <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST AI Graduate School (AIGS)</a>, advised by <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Prof. Sangwoong Yoon</a> at the <a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a>.</p>
-      <p>I am broadly interested in fundamental AI and currently studying reinforcement learning 🤖. What draws me most is the idea of active agents — systems that perceive, decide, and act in the real world. Still very much learning!</p>
-      <p>I'm drawn to the keyword <em>problem-solving</em> — not just in engineering. Wanting to experience how different fields approach problems, I explored multiple majors: <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">Industrial Engineering</a> taught me systems thinking, <a href="https://design.unist.ac.kr/" target="_blank" rel="noopener">Design</a> showed me how to bridge people and technology, and <a href="https://business.unist.ac.kr/business/index.do" target="_blank" rel="noopener">Management Science</a> gave me organizational problem-solving frameworks. I also served as President of the <a href="https://www.instagram.com/unistusc/" target="_blank" rel="noopener">UNIST Undergraduate Student Council</a> for about two years 🏫.</p>
-      <p>I was born in Daegu, South Korea 🇰🇷, graduated from <a href="https://dg1s.dge.hs.kr/dg1sh/main.do" target="_blank" rel="noopener">Daegu Science High School</a>, and received my B.S. in <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">Industrial Engineering</a> and <a href="https://math.unist.ac.kr/" target="_blank" rel="noopener">Mathematical Sciences</a> from UNIST. Before graduate school, I worked as a Business Operations Manager at <a href="https://www.linkedin.com/company/102073770/" target="_blank" rel="noopener">Cheiron</a>, an AI startup for the pharmaceutical industry.</p>
-      <p>Outside research, I enjoy <a href="https://www.instagram.com/studio_ingam/" target="_blank" rel="noopener">portrait photography</a> 📷, design projects, and <a href="https://www.instagram.com/unist_nest/" target="_blank" rel="noopener">theater</a> — as a director, actor, or simply an audience member 🎭. Having lived in Ulsan for years, I find myself thinking about regional development and what it means to live well in a place.</p>
-      <p>I love connecting with people — research or everyday life, any topic is welcome. Please feel free to reach out 😊!</p>
-    </div>
+      <!-- 오른쪽: 텍스트 -->
+      <div>
+        <div class="about-text fade" id="about-ko">
+          <p>안녕하세요, 저는 안성근이라고 합니다. 만나서 반가워요! 👋</p>
+          <p>현재 <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST 인공지능대학원(AIGS)</a>에서 <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Sangwoong Yoon</a> 교수님의 지도 아래 <a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a> 소속으로 석사과정을 밟고 있습니다.</p>
+          <p>fundamental한 AI에 관심이 많고, 강화학습을 공부하고 있습니다 🤖. 현실 세계와 상호작용하며 스스로 행동하는 능동적인 에이전트라는 개념 자체에 매력을 느낍니다. 아직 배워가는 단계입니다!</p>
+          <p>'문제 해결'이라는 키워드를 좋아합니다 — 꼭 공학이 아니더라도요. 다양한 분야의 문제 해결 방식을 직접 경험해보고 싶어 여러 학과를 두루 밟았습니다. <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">산업공학</a>에서는 시스템적 사고를, <a href="https://design.unist.ac.kr/" target="_blank" rel="noopener">디자인</a>에서는 사람과 기술을 연결하는 방식을, <a href="https://business.unist.ac.kr/business/index.do" target="_blank" rel="noopener">경영과학</a>에서는 조직 관점의 문제 해결 방법론을 배웠습니다. 약 2년간 <a href="https://www.instagram.com/unistusc/" target="_blank" rel="noopener">UNIST 학부 총학생회</a>장을 맡으며 직접 학교 문제를 해결하기도 했습니다 🏫.</p>
+          <p>대한민국 대구에서 태어나 <a href="https://dg1s.dge.hs.kr/dg1sh/main.do" target="_blank" rel="noopener">대구일과학고등학교</a>를 졸업하고, UNIST에서 <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">산업공학</a>·<a href="https://math.unist.ac.kr/" target="_blank" rel="noopener">수리과학</a>으로 학사 학위를 받았습니다. 입학 전에는 AI 스타트업 <a href="https://www.linkedin.com/company/102073770/" target="_blank" rel="noopener">Cheiron</a>에서 Business Operations Manager로 일했습니다.</p>
+          <p>연구 외에는 <a href="https://www.instagram.com/studio_ingam/" target="_blank" rel="noopener">인물 사진 촬영</a> 📷, 디자인 프로젝트, <a href="https://www.instagram.com/unist_nest/" target="_blank" rel="noopener">연극</a>(연출·배우·관람 모두 🎭)을 즐깁니다. 울산에 오래 살게 되면서 지역 발전과 균형 있는 삶에 대해서도 종종 생각합니다.</p>
+          <p>연구 이야기든 가벼운 일상 이야기든, 어떤 주제로도 소통하는 것을 좋아합니다. 편하게 연락주세요 😊!</p>
+        </div>
 
-    <div class="kw-row fade">
-      <span class="kw">Reinforcement Learning</span>
-      <span class="kw">AI Agents</span>
-      <span class="kw">Industrial Engineering</span>
-      <span class="kw">Systems Thinking</span>
-      <span class="kw">Design</span>
+        <div class="about-text fade" id="about-en" style="display:none">
+          <p>Hi, I'm Seonggeun! 👋</p>
+          <p>I am a first-year M.S. student at <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST AI Graduate School (AIGS)</a>, advised by <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Prof. Sangwoong Yoon</a> at the <a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a>.</p>
+          <p>I am broadly interested in fundamental AI and currently studying reinforcement learning 🤖. What draws me most is the idea of active agents — systems that perceive, decide, and act in the real world. Still very much learning!</p>
+          <p>I'm drawn to the keyword <em>problem-solving</em> — not just in engineering. Wanting to experience how different fields approach problems, I explored multiple majors: <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">Industrial Engineering</a> taught me systems thinking, <a href="https://design.unist.ac.kr/" target="_blank" rel="noopener">Design</a> showed me how to bridge people and technology, and <a href="https://business.unist.ac.kr/business/index.do" target="_blank" rel="noopener">Management Science</a> gave me organizational problem-solving frameworks. I also served as President of the <a href="https://www.instagram.com/unistusc/" target="_blank" rel="noopener">UNIST Undergraduate Student Council</a> for about two years 🏫.</p>
+          <p>I was born in Daegu, South Korea 🇰🇷, graduated from <a href="https://dg1s.dge.hs.kr/dg1sh/main.do" target="_blank" rel="noopener">Daegu Science High School</a>, and received my B.S. in <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">Industrial Engineering</a> and <a href="https://math.unist.ac.kr/" target="_blank" rel="noopener">Mathematical Sciences</a> from UNIST. Before graduate school, I worked as a Business Operations Manager at <a href="https://www.linkedin.com/company/102073770/" target="_blank" rel="noopener">Cheiron</a>.</p>
+          <p>Outside research, I enjoy <a href="https://www.instagram.com/studio_ingam/" target="_blank" rel="noopener">portrait photography</a> 📷, design projects, and <a href="https://www.instagram.com/unist_nest/" target="_blank" rel="noopener">theater</a> — as a director, actor, or simply an audience member 🎭.</p>
+          <p>I love connecting with people — research or everyday life, any topic is welcome. Please feel free to reach out 😊!</p>
+        </div>
+
+        <div class="kw-row fade">
+          <span class="kw">Reinforcement Learning</span>
+          <span class="kw">AI Agents</span>
+          <span class="kw">Industrial Engineering</span>
+          <span class="kw">Systems Thinking</span>
+          <span class="kw">Design</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -508,29 +517,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="section-title">Contact</p>
-    <div class="contact-grid fade">
-      <h2 class="contact-heading" id="contact-heading-ko">함께<br>이야기해요.</h2>
-      <h2 class="contact-heading" id="contact-heading-en" style="display:none">Let's<br>connect.</h2>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:boy0073693@gmail.com">
-          <span>Email</span><span class="arr">↗</span>
-        </a>
-        <a class="contact-link" href="https://www.linkedin.com/in/seonggeun-ahn/" target="_blank" rel="noopener">
-          <span>LinkedIn</span><span class="arr">↗</span>
-        </a>
-        <a class="contact-link" href="https://github.com/seonggeun-ahn" target="_blank" rel="noopener">
-          <span>GitHub</span><span class="arr">↗</span>
-        </a>
-        <a class="contact-link" href="https://www.instagram.com/sg_ahn3693/" target="_blank" rel="noopener">
-          <span>Instagram</span><span class="arr">↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <span>© 2026 Seonggeun Ahn</span>
     <span>seonggeun-ahn.github.io</span>
@@ -541,15 +527,9 @@
 
     function toggleLang() {
       isKo = !isKo;
-      const btn = document.querySelector('.lang-btn');
-      btn.textContent = isKo ? 'EN' : 'KO';
-
+      document.querySelector('.lang-btn').textContent = isKo ? 'EN' : 'KO';
       document.getElementById('about-ko').style.display = isKo ? '' : 'none';
       document.getElementById('about-en').style.display = isKo ? 'none' : '';
-      document.getElementById('hero-sub-ko').style.display = isKo ? '' : 'none';
-      document.getElementById('hero-sub-en').style.display = isKo ? 'none' : '';
-      document.getElementById('contact-heading-ko').style.display = isKo ? '' : 'none';
-      document.getElementById('contact-heading-en').style.display = isKo ? 'none' : '';
     }
 
     const obs = new IntersectionObserver(entries => {
