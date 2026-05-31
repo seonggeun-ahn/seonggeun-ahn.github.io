@@ -18,6 +18,7 @@
       --gray-light: #bbb;
       --border: #e8e8e8;
       --bg: #ffffff;
+      --side: 5vw;
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +40,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 2.5rem;
+      padding: 1.25rem var(--side);
       background: rgba(255,255,255,0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -87,13 +88,12 @@
 
     /* HERO */
     .hero {
-      padding: 10rem 2.5rem 5rem;
+      padding: 10rem var(--side) 5rem;
       border-bottom: 1px solid var(--border);
-      max-width: 960px;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-size: clamp(2.8rem, 7vw, 6rem);
       font-weight: 300;
       line-height: 1.08;
       letter-spacing: -0.03em;
@@ -109,9 +109,8 @@
 
     /* SECTION */
     section {
-      padding: 5rem 2.5rem;
+      padding: 5rem var(--side);
       border-bottom: 1px solid var(--border);
-      max-width: 960px;
     }
 
     .section-title {
@@ -126,8 +125,8 @@
     /* ABOUT — 2-column */
     .about-grid {
       display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3.5rem;
+      grid-template-columns: 220px 1fr;
+      gap: 4rem;
       align-items: start;
     }
 
@@ -214,7 +213,7 @@
     /* EXPERIENCE & PROJECTS */
     .entry {
       display: grid;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 2rem;
       padding: 2rem 0;
       border-top: 1px solid var(--border);
@@ -251,10 +250,7 @@
       line-height: 1.75;
     }
 
-    .entry-content a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .entry-content a { color: inherit; text-decoration: none; }
 
     .entry-content ul { padding-left: 1.1rem; }
     .entry-content ul li { margin-bottom: 0.2rem; }
@@ -276,8 +272,7 @@
 
     /* FOOTER */
     footer {
-      max-width: 960px;
-      padding: 2rem 2.5rem;
+      padding: 2rem var(--side);
       display: flex;
       justify-content: space-between;
       font-size: 0.75rem;
@@ -294,10 +289,9 @@
 
     /* MOBILE */
     @media (max-width: 700px) {
-      nav { padding: 1rem 1.25rem; }
+      :root { --side: 1.25rem; }
       .nav-links { gap: 1rem; }
-      .hero { padding: 7rem 1.25rem 4rem; }
-      section { padding: 3.5rem 1.25rem; }
+      .hero { padding-top: 7rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-photo { width: 140px; aspect-ratio: 3/4; }
       .entry { grid-template-columns: 1fr; gap: 0.4rem; }
@@ -327,9 +321,7 @@
   <!-- ABOUT -->
   <section id="about">
     <p class="section-title">About</p>
-
     <div class="about-grid">
-      <!-- 왼쪽: 사진 + 링크 -->
       <div class="about-left fade">
         <img class="about-photo" src="assets/202604_sgahn_profile.jpg" alt="Seonggeun Ahn" />
         <p class="about-email">boy0073693@gmail.com</p>
@@ -343,7 +335,6 @@
         </div>
       </div>
 
-      <!-- 오른쪽: 텍스트 -->
       <div>
         <div class="about-text fade" id="about-ko">
           <p>안녕하세요, 저는 안성근이라고 합니다. 만나서 반가워요! 👋</p>
@@ -382,7 +373,7 @@
     <div class="fade">
 
       <div class="entry">
-        <span class="entry-period">Jul 2026 –<br>present</span>
+        <span class="entry-period">Jul 2026 – present</span>
         <div class="entry-content">
           <h3>M.S. Student Researcher</h3>
           <p class="org"><a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a> · <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST AIGS</a> · Ulsan</p>
@@ -391,7 +382,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Feb 2026 –<br>May 2026</span>
+        <span class="entry-period">Feb 2026 – May 2026</span>
         <div class="entry-content">
           <h3>Business Operations Manager</h3>
           <p class="org">Cheiron (PhnyX Lab) · Seoul</p>
@@ -404,7 +395,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jul 2024 –<br>Feb 2025</span>
+        <span class="entry-period">Jul 2024 – Feb 2025</span>
         <div class="entry-content">
           <h3>Undergraduate Research Intern</h3>
           <p class="org">Data-driven Management Engineering Lab, UNIST SBA · Ulsan</p>
@@ -413,7 +404,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jan 2023 –<br>Mar 2023</span>
+        <span class="entry-period">Jan 2023 – Mar 2023</span>
         <div class="entry-content">
           <h3>Design Intern</h3>
           <p class="org">TheLoad · Ulsan</p>
@@ -422,7 +413,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jan 2022 –<br>Jun 2023</span>
+        <span class="entry-period">Jan 2022 – Jun 2023</span>
         <div class="entry-content">
           <h3>Undergraduate Research Intern</h3>
           <p class="org">Financial Engineering Lab, UNIST IE · Ulsan</p>
@@ -439,7 +430,7 @@
     <div class="fade">
 
       <div class="entry">
-        <span class="entry-period">Mar 2025 –<br>Sep 2025</span>
+        <span class="entry-period">Mar 2025 – Sep 2025</span>
         <div class="entry-content">
           <h3>Text-based Game for Evaluating LLM Reasoning & Planning</h3>
           <p class="org">Machine Learning and Optimization Lab, UNIST · Advisor: Prof. Dong-Young Lim</p>
@@ -453,7 +444,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Mar 2025 –<br>Sep 2025</span>
+        <span class="entry-period">Mar 2025 – Sep 2025</span>
         <div class="entry-content">
           <h3>Thinking with AI: Human-AI Design & Critical Thinking</h3>
           <p class="org">Design Futures Lab, UNIST · Advisor: Prof. Dajung Kim</p>
@@ -467,7 +458,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jun 2025 –<br>Dec 2025</span>
+        <span class="entry-period">Jun 2025 – Dec 2025</span>
         <div class="entry-content">
           <h3>Ulsan Cup Operations Support System</h3>
           <p class="org">New Design Studio, UNIST · Advisor: Prof. Seungho-Park Lee</p>
@@ -480,7 +471,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Mar 2023 –<br>Nov 2023</span>
+        <span class="entry-period">Mar 2023 – Nov 2023</span>
         <div class="entry-content">
           <h3>AI-based Fault Detection for Small-sized Manufacturing</h3>
           <p class="org">Industrial Intelligence Lab, UNIST · Advisor: Prof. Sunghoon Lim</p>
@@ -493,7 +484,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Mar 2022 –<br>Nov 2022</span>
+        <span class="entry-period">Mar 2022 – Nov 2022</span>
         <div class="entry-content">
           <h3>NLP Model for Sentiment Analysis by Stock Item</h3>
           <p class="org">Financial Engineering Lab, UNIST · Advisor: Prof. Yongjae Lee</p>
@@ -506,7 +497,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Feb 2024 –<br>Apr 2024</span>
+        <span class="entry-period">Feb 2024 – Apr 2024</span>
         <div class="entry-content">
           <h3>UNIST Dormitory Restaurant Wall Design Renewal</h3>
           <p class="org">Client: UNIST General Affairs Team</p>
