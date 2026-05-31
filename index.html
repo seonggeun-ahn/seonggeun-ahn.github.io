@@ -4,21 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seonggeun Ahn</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
-    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --black: #111111;
-      --gray-dark: #555;
+      --gray-dark: #444;
       --gray: #888;
       --gray-light: #bbb;
       --border: #e8e8e8;
       --bg: #ffffff;
-      --bg-soft: #fafafa;
     }
 
     html { scroll-behavior: smooth; }
@@ -58,6 +57,7 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -71,115 +71,122 @@
 
     .nav-links a:hover { color: var(--black); }
 
+    .lang-btn {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-btn:hover { color: var(--black); border-color: var(--gray-light); }
+
     /* HERO */
     .hero {
-      padding: 10rem 2.5rem 6rem;
+      padding: 10rem 2.5rem 5rem;
       border-bottom: 1px solid var(--border);
-      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: end;
+      max-width: 960px;
     }
+
+    .hero-left {}
 
     .hero-eyebrow {
       font-size: 0.78rem;
       font-weight: 400;
       color: var(--gray);
       letter-spacing: 0.04em;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      font-weight: 300;
-      line-height: 1.12;
-      letter-spacing: -0.025em;
-      color: var(--black);
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--gray-dark);
-      line-height: 1.75;
-      max-width: 48ch;
-    }
-
-    /* LAYOUT */
-    .container {
-      max-width: 900px;
-      padding: 0 2.5rem;
-    }
-
-    section {
-      padding: 5rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-      max-width: 900px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-light);
-    }
-
-    /* ABOUT */
-    .about-body {
-      display: grid;
-      grid-template-columns: 1fr 1.8fr;
-      gap: 4rem;
-    }
-
-    .about-left {}
-
-    .about-name {
-      font-size: 1.5rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-
-    .about-role {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-bottom: 1.5rem;
-    }
-
-    .chip-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .chip {
-      font-size: 0.7rem;
-      font-weight: 400;
-      color: var(--gray);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      letter-spacing: 0.02em;
-    }
-
-    .about-right p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--gray-dark);
-      line-height: 1.85;
       margin-bottom: 1rem;
     }
 
-    .about-right p:last-child { margin-bottom: 0; }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
 
-    /* EXPERIENCE */
+    .hero-sub {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .hero-photo {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 4px;
+      filter: grayscale(8%);
+      flex-shrink: 0;
+    }
+
+    /* SECTION */
+    section {
+      padding: 5rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 960px;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT */
+    .about-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--gray-dark);
+      line-height: 1.9;
+      margin-bottom: 1.1rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-text a {
+      color: var(--black);
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .about-text a:hover { text-decoration-color: var(--gray); }
+
+    .kw-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 2rem 0 0;
+    }
+
+    .kw {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--gray);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    /* EXPERIENCE & PROJECTS */
     .entry {
       display: grid;
       grid-template-columns: 160px 1fr;
@@ -191,18 +198,18 @@
     .entry:last-child { border-bottom: 1px solid var(--border); }
 
     .entry-period {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 400;
       color: var(--gray-light);
-      padding-top: 0.2rem;
-      line-height: 1.5;
+      padding-top: 0.15rem;
+      line-height: 1.6;
     }
 
     .entry-content h3 {
-      font-size: 0.97rem;
+      font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: -0.01em;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
       color: var(--black);
     }
 
@@ -213,26 +220,23 @@
     }
 
     .entry-content p, .entry-content ul {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 300;
       color: var(--gray-dark);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .entry-content ul {
-      padding-left: 1.1rem;
-    }
-
+    .entry-content ul { padding-left: 1.1rem; }
     .entry-content ul li { margin-bottom: 0.2rem; }
 
-    .kw-chips {
+    .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
       margin-top: 0.6rem;
     }
 
-    .kw {
+    .tag {
       font-size: 0.68rem;
       color: var(--gray-light);
       border: 1px solid var(--border);
@@ -249,7 +253,7 @@
     }
 
     .contact-heading {
-      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-size: clamp(1.8rem, 4vw, 3rem);
       font-weight: 300;
       letter-spacing: -0.025em;
       line-height: 1.2;
@@ -273,16 +277,14 @@
 
     .contact-link:last-child { border-bottom: 1px solid var(--border); }
     .contact-link:hover { color: var(--gray); }
-
-    .contact-link .arr { font-size: 0.9rem; color: var(--gray-light); }
+    .contact-link .arr { font-size: 0.85rem; color: var(--gray-light); }
 
     /* FOOTER */
     footer {
-      max-width: 900px;
+      max-width: 960px;
       padding: 2rem 2.5rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       font-size: 0.75rem;
       color: var(--gray-light);
     }
@@ -290,22 +292,21 @@
     /* FADE */
     .fade {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
     .fade.on { opacity: 1; transform: none; }
 
     /* MOBILE */
     @media (max-width: 700px) {
       nav { padding: 1rem 1.25rem; }
-      .hero, section { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .hero { padding-top: 7rem; }
-      .about-body { grid-template-columns: 1fr; gap: 2rem; }
-      .entry { grid-template-columns: 1fr; gap: 0.5rem; }
-      .entry-period { padding-top: 0; }
+      .nav-links { gap: 1rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.25rem 4rem; gap: 2rem; }
+      .hero-photo { width: 120px; height: 150px; }
+      section { padding: 3.5rem 1.25rem; }
+      .entry { grid-template-columns: 1fr; gap: 0.4rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+      footer { flex-direction: column; gap: 0.3rem; }
     }
   </style>
 </head>
@@ -318,63 +319,70 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><button class="lang-btn" onclick="toggleLang()">EN</button></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <div class="hero">
-    <p class="hero-eyebrow">Seonggeun Ahn · Seoul, Korea</p>
-    <h1>Industrial Engineer<br>& Operations</h1>
-    <p class="hero-sub">
-      UNIST 산업공학 + 수리과학 졸업.<br>
-      시스템을 설계하고 문제를 구조화하는 데 관심이 많습니다.
-    </p>
+    <div class="hero-left">
+      <p class="hero-eyebrow">안성근 · Seoul, Korea</p>
+      <h1>Seonggeun<br>Ahn</h1>
+      <p class="hero-sub" id="hero-sub-ko">M.S. Student · UNIST AIGS · AGA Lab</p>
+      <p class="hero-sub" id="hero-sub-en" style="display:none">M.S. Student · UNIST AIGS · AGA Lab</p>
+    </div>
+    <img class="hero-photo" src="assets/202604_sgahn_profile.jpg" alt="Seonggeun Ahn" />
   </div>
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="section-header">
-      <span class="section-title">About</span>
+    <p class="section-title">About</p>
+
+    <div class="about-text fade" id="about-ko">
+      <p>안녕하세요, 저는 안성근이라고 합니다. 만나서 반가워요! 👋</p>
+      <p>현재 <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST 인공지능대학원(AIGS)</a>에서 <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Sangwoong Yoon</a> 교수님의 지도 아래 <a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a> 소속으로 석사과정을 밟고 있습니다.</p>
+      <p>fundamental한 AI에 관심이 많고, 강화학습을 공부하고 있습니다 🤖. 현실 세계와 상호작용하며 스스로 행동하는 능동적인 에이전트라는 개념 자체에 매력을 느낍니다. 아직 배워가는 단계입니다!</p>
+      <p>'문제 해결'이라는 키워드를 좋아합니다 — 꼭 공학이 아니더라도요. 다양한 분야의 문제 해결 방식을 직접 경험해보고 싶어 여러 학과를 두루 밟았습니다. <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">산업공학</a>에서는 시스템적 사고를, <a href="https://design.unist.ac.kr/" target="_blank" rel="noopener">디자인</a>에서는 사람과 기술을 연결하는 방식을, <a href="https://business.unist.ac.kr/business/index.do" target="_blank" rel="noopener">경영과학</a>에서는 조직 관점의 문제 해결 방법론을 배웠습니다. 약 2년간 <a href="https://www.instagram.com/unistusc/" target="_blank" rel="noopener">UNIST 학부 총학생회</a>장을 맡으며 직접 학교 문제를 해결하기도 했습니다 🏫.</p>
+      <p>대한민국 대구에서 태어나 <a href="https://dg1s.dge.hs.kr/dg1sh/main.do" target="_blank" rel="noopener">대구일과학고등학교</a>를 졸업하고, UNIST에서 <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">산업공학</a>·<a href="https://math.unist.ac.kr/" target="_blank" rel="noopener">수리과학</a>으로 학사 학위를 받았습니다. 입학 전에는 AI 스타트업 <a href="https://www.linkedin.com/company/102073770/" target="_blank" rel="noopener">Cheiron</a>에서 Business Operations Manager로 일했습니다.</p>
+      <p>연구 외에는 <a href="https://www.instagram.com/studio_ingam/" target="_blank" rel="noopener">인물 사진 촬영</a> 📷, 디자인 프로젝트, <a href="https://www.instagram.com/unist_nest/" target="_blank" rel="noopener">연극</a>(연출·배우·관람 모두 🎭)을 즐깁니다. 울산에 오래 살게 되면서 지역 발전과 균형 있는 삶에 대해서도 종종 생각합니다.</p>
+      <p>연구 이야기든 가벼운 일상 이야기든, 어떤 주제로도 소통하는 것을 좋아합니다. 편하게 연락주세요 😊!</p>
     </div>
-    <div class="about-body fade">
-      <div class="about-left">
-        <p class="about-name">안성근<br>Seonggeun Ahn</p>
-        <p class="about-role">B.S. IE & Mathematical Sciences<br>UNIST, 2026</p>
-        <div class="chip-group">
-          <span class="chip">Operations</span>
-          <span class="chip">IE</span>
-          <span class="chip">Optimization</span>
-          <span class="chip">Data Science</span>
-          <span class="chip">Design</span>
-        </div>
-      </div>
-      <div class="about-right">
-        <p>
-          UNIST에서 산업공학과 수리과학을 복수전공하고, 디자인과 경영과학을 부전공했습니다.
-          GPA 3.66/4.30, 수학경시대회 은상, 국가이공계장학금 수혜.
-        </p>
-        <p>
-          학부 연구 인턴으로 금융 NLP, AI 기반 스마트팩토리, Human-AI 인터랙션 디자인, LLM 에이전트 벤치마크 등 다양한 프로젝트를 경험했습니다.
-        </p>
-        <p>
-          현재는 AI 제약·바이오 플랫폼 스타트업 Cheiron에서 Operations Manager로 BD, 리크루팅, 컴플라이언스 업무를 담당하고 있습니다.
-        </p>
-        <p>
-          관심 분야는 확률적 최적화, 운영 연구, 그리고 사람과 시스템이 맞닿는 지점입니다.
-        </p>
-      </div>
+
+    <div class="about-text fade" id="about-en" style="display:none">
+      <p>Hi, I'm Seonggeun! 👋</p>
+      <p>I am a first-year M.S. student at <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST AI Graduate School (AIGS)</a>, advised by <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Prof. Sangwoong Yoon</a> at the <a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a>.</p>
+      <p>I am broadly interested in fundamental AI and currently studying reinforcement learning 🤖. What draws me most is the idea of active agents — systems that perceive, decide, and act in the real world. Still very much learning!</p>
+      <p>I'm drawn to the keyword <em>problem-solving</em> — not just in engineering. Wanting to experience how different fields approach problems, I explored multiple majors: <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">Industrial Engineering</a> taught me systems thinking, <a href="https://design.unist.ac.kr/" target="_blank" rel="noopener">Design</a> showed me how to bridge people and technology, and <a href="https://business.unist.ac.kr/business/index.do" target="_blank" rel="noopener">Management Science</a> gave me organizational problem-solving frameworks. I also served as President of the <a href="https://www.instagram.com/unistusc/" target="_blank" rel="noopener">UNIST Undergraduate Student Council</a> for about two years 🏫.</p>
+      <p>I was born in Daegu, South Korea 🇰🇷, graduated from <a href="https://dg1s.dge.hs.kr/dg1sh/main.do" target="_blank" rel="noopener">Daegu Science High School</a>, and received my B.S. in <a href="https://ie.unist.ac.kr/ie/index.do" target="_blank" rel="noopener">Industrial Engineering</a> and <a href="https://math.unist.ac.kr/" target="_blank" rel="noopener">Mathematical Sciences</a> from UNIST. Before graduate school, I worked as a Business Operations Manager at <a href="https://www.linkedin.com/company/102073770/" target="_blank" rel="noopener">Cheiron</a>, an AI startup for the pharmaceutical industry.</p>
+      <p>Outside research, I enjoy <a href="https://www.instagram.com/studio_ingam/" target="_blank" rel="noopener">portrait photography</a> 📷, design projects, and <a href="https://www.instagram.com/unist_nest/" target="_blank" rel="noopener">theater</a> — as a director, actor, or simply an audience member 🎭. Having lived in Ulsan for years, I find myself thinking about regional development and what it means to live well in a place.</p>
+      <p>I love connecting with people — research or everyday life, any topic is welcome. Please feel free to reach out 😊!</p>
+    </div>
+
+    <div class="kw-row fade">
+      <span class="kw">Reinforcement Learning</span>
+      <span class="kw">AI Agents</span>
+      <span class="kw">Industrial Engineering</span>
+      <span class="kw">Systems Thinking</span>
+      <span class="kw">Design</span>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-header">
-      <span class="section-title">Experience</span>
-    </div>
-
+    <p class="section-title">Experience</p>
     <div class="fade">
+
       <div class="entry">
-        <span class="entry-period">Feb 2026 – May 2026</span>
+        <span class="entry-period">Jul 2026 –<br>present</span>
+        <div class="entry-content">
+          <h3>M.S. Student Researcher</h3>
+          <p class="org"><a href="https://sites.google.com/view/aga-lab/" target="_blank" rel="noopener">AGA Lab</a> · <a href="https://aigs.unist.ac.kr/" target="_blank" rel="noopener">UNIST AIGS</a> · Ulsan</p>
+          <p>Advisor: <a href="https://swyoon.github.io/" target="_blank" rel="noopener">Prof. Sangwoong Yoon</a></p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <span class="entry-period">Feb 2026 –<br>May 2026</span>
         <div class="entry-content">
           <h3>Business Operations Manager</h3>
           <p class="org">Cheiron (PhnyX Lab) · Seoul</p>
@@ -387,7 +395,7 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jul 2024 – Feb 2025</span>
+        <span class="entry-period">Jul 2024 –<br>Feb 2025</span>
         <div class="entry-content">
           <h3>Undergraduate Research Intern</h3>
           <p class="org">Data-driven Management Engineering Lab, UNIST SBA · Ulsan</p>
@@ -396,134 +404,128 @@
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jan 2023 – Mar 2023</span>
+        <span class="entry-period">Jan 2023 –<br>Mar 2023</span>
         <div class="entry-content">
           <h3>Design Intern</h3>
           <p class="org">TheLoad · Ulsan</p>
-          <p>제품 모델링, 사진 촬영. 스마트 에코 분야 전문 기업.</p>
+          <p>제품 모델링 및 사진 촬영. 스마트 에코 분야 전문 기업.</p>
         </div>
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jan 2022 – Jun 2023</span>
+        <span class="entry-period">Jan 2022 –<br>Jun 2023</span>
         <div class="entry-content">
           <h3>Undergraduate Research Intern</h3>
           <p class="org">Financial Engineering Lab, UNIST IE · Ulsan</p>
           <p>Advisor: Prof. Yongjae Lee</p>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-header">
-      <span class="section-title">Projects</span>
-    </div>
-
+    <p class="section-title">Projects</p>
     <div class="fade">
+
       <div class="entry">
-        <span class="entry-period">Mar 2025 – Sep 2025</span>
+        <span class="entry-period">Mar 2025 –<br>Sep 2025</span>
         <div class="entry-content">
           <h3>Text-based Game for Evaluating LLM Reasoning & Planning</h3>
           <p class="org">Machine Learning and Optimization Lab, UNIST · Advisor: Prof. Dong-Young Lim</p>
-          <div class="kw-chips">
-            <span class="kw">LLM Agents</span>
-            <span class="kw">Interactive Benchmarks</span>
-            <span class="kw">Reasoning & Planning</span>
-            <span class="kw">Memory & Spatial Cognition</span>
+          <div class="tag-row">
+            <span class="tag">LLM Agents</span>
+            <span class="tag">Interactive Benchmarks</span>
+            <span class="tag">Reasoning & Planning</span>
+            <span class="tag">Memory & Spatial Cognition</span>
           </div>
         </div>
       </div>
 
       <div class="entry">
-        <span class="entry-period">Mar 2025 – Sep 2025</span>
+        <span class="entry-period">Mar 2025 –<br>Sep 2025</span>
         <div class="entry-content">
           <h3>Thinking with AI: Human-AI Design & Critical Thinking</h3>
           <p class="org">Design Futures Lab, UNIST · Advisor: Prof. Dajung Kim</p>
-          <div class="kw-chips">
-            <span class="kw">Human–AI Interaction</span>
-            <span class="kw">Critical Thinking</span>
-            <span class="kw">LLM</span>
-            <span class="kw">Explainable AI</span>
-            <span class="kw">Learner Agency</span>
+          <div class="tag-row">
+            <span class="tag">Human–AI Interaction</span>
+            <span class="tag">Critical Thinking</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Explainable AI</span>
           </div>
         </div>
       </div>
 
       <div class="entry">
-        <span class="entry-period">Jun 2025 – Dec 2025</span>
+        <span class="entry-period">Jun 2025 –<br>Dec 2025</span>
         <div class="entry-content">
           <h3>Ulsan Cup Operations Support System</h3>
           <p class="org">New Design Studio, UNIST · Advisor: Prof. Seungho-Park Lee</p>
-          <div class="kw-chips">
-            <span class="kw">Qualitative–Quantitative Integration</span>
-            <span class="kw">User Clustering</span>
-            <span class="kw">Stakeholder Dashboard</span>
+          <div class="tag-row">
+            <span class="tag">Qualitative–Quantitative Integration</span>
+            <span class="tag">User Clustering</span>
+            <span class="tag">Stakeholder Dashboard</span>
           </div>
         </div>
       </div>
 
       <div class="entry">
-        <span class="entry-period">Mar 2023 – Nov 2023</span>
+        <span class="entry-period">Mar 2023 –<br>Nov 2023</span>
         <div class="entry-content">
           <h3>AI-based Fault Detection for Small-sized Manufacturing</h3>
           <p class="org">Industrial Intelligence Lab, UNIST · Advisor: Prof. Sunghoon Lim</p>
-          <div class="kw-chips">
-            <span class="kw">AI & Smart Factory</span>
-            <span class="kw">Gaussian Process</span>
-            <span class="kw">Metaheuristic Algorithm</span>
+          <div class="tag-row">
+            <span class="tag">AI & Smart Factory</span>
+            <span class="tag">Gaussian Process</span>
+            <span class="tag">Metaheuristic Algorithm</span>
           </div>
         </div>
       </div>
 
       <div class="entry">
-        <span class="entry-period">Mar 2022 – Nov 2022</span>
+        <span class="entry-period">Mar 2022 –<br>Nov 2022</span>
         <div class="entry-content">
           <h3>NLP Model for Sentiment Analysis by Stock Item</h3>
           <p class="org">Financial Engineering Lab, UNIST · Advisor: Prof. Yongjae Lee</p>
-          <div class="kw-chips">
-            <span class="kw">Financial Engineering</span>
-            <span class="kw">NLP</span>
-            <span class="kw">Sentiment Analysis</span>
+          <div class="tag-row">
+            <span class="tag">Financial Engineering</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Sentiment Analysis</span>
           </div>
         </div>
       </div>
 
       <div class="entry">
-        <span class="entry-period">Feb 2024 – Apr 2024</span>
+        <span class="entry-period">Feb 2024 –<br>Apr 2024</span>
         <div class="entry-content">
           <h3>UNIST Dormitory Restaurant Wall Design Renewal</h3>
           <p class="org">Client: UNIST General Affairs Team</p>
           <p>Photographic Director</p>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-header">
-      <span class="section-title">Contact</span>
-    </div>
+    <p class="section-title">Contact</p>
     <div class="contact-grid fade">
-      <h2 class="contact-heading">함께<br>이야기해요.</h2>
+      <h2 class="contact-heading" id="contact-heading-ko">함께<br>이야기해요.</h2>
+      <h2 class="contact-heading" id="contact-heading-en" style="display:none">Let's<br>connect.</h2>
       <div class="contact-links">
         <a class="contact-link" href="mailto:boy0073693@gmail.com">
-          <span>Email</span>
-          <span class="arr">↗</span>
+          <span>Email</span><span class="arr">↗</span>
         </a>
         <a class="contact-link" href="https://www.linkedin.com/in/seonggeun-ahn/" target="_blank" rel="noopener">
-          <span>LinkedIn</span>
-          <span class="arr">↗</span>
+          <span>LinkedIn</span><span class="arr">↗</span>
         </a>
         <a class="contact-link" href="https://github.com/seonggeun-ahn" target="_blank" rel="noopener">
-          <span>GitHub</span>
-          <span class="arr">↗</span>
+          <span>GitHub</span><span class="arr">↗</span>
         </a>
         <a class="contact-link" href="https://www.instagram.com/sg_ahn3693/" target="_blank" rel="noopener">
-          <span>Instagram</span>
-          <span class="arr">↗</span>
+          <span>Instagram</span><span class="arr">↗</span>
         </a>
       </div>
     </div>
@@ -531,13 +533,28 @@
 
   <footer>
     <span>© 2026 Seonggeun Ahn</span>
-    <span>seonggeunahn.github.io</span>
+    <span>seonggeun-ahn.github.io</span>
   </footer>
 
   <script>
+    let isKo = true;
+
+    function toggleLang() {
+      isKo = !isKo;
+      const btn = document.querySelector('.lang-btn');
+      btn.textContent = isKo ? 'EN' : 'KO';
+
+      document.getElementById('about-ko').style.display = isKo ? '' : 'none';
+      document.getElementById('about-en').style.display = isKo ? 'none' : '';
+      document.getElementById('hero-sub-ko').style.display = isKo ? '' : 'none';
+      document.getElementById('hero-sub-en').style.display = isKo ? 'none' : '';
+      document.getElementById('contact-heading-ko').style.display = isKo ? '' : 'none';
+      document.getElementById('contact-heading-en').style.display = isKo ? 'none' : '';
+    }
+
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.06 });
     document.querySelectorAll('.fade').forEach(el => obs.observe(el));
   </script>
 
